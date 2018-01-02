@@ -25,7 +25,7 @@ class Eyes(Images):
 
     #Animation states.
     #Opened eyes.
-    def open_eyes(self):
+    def open(self):
         self._reset_matris()
         dots = [[0, 1, 2, 5, 6, 7], [0, 2, 5, 7], [0, 1, 2, 5, 6, 7]]
         self._spawn_dots(self.color, dots)
@@ -33,11 +33,11 @@ class Eyes(Images):
         return self.matris
 
     #Halfclosed eyes.
-    def halfclosed_eyes(self):
+    def half_closed(self):
         self._reset_matris()
         dots = [[], [0, 2, 5, 7], []]
         self._spawn_dots(self.color, dots)
-        self.pupil()
+        self._pupil()
         return self.matris
 
     #Closed eyes.
@@ -68,7 +68,6 @@ class Eyes(Images):
         self._reset_matris()
         dots = [[1, 2, 5, 6], [0, 3, 4, 7], []]
         self._spawn_dots(self.color, dots)
-
         return self.matris
 
     #Get crazy.

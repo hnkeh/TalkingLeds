@@ -1,0 +1,26 @@
+from animator import *
+from colors import *
+
+class TalkingLeds():
+    def __init__(self):
+        #Values.
+        self.background_color = black
+        self.eye_color = red
+        self.pupil_color = white
+        self.lips_color = red
+        self.teeth_color = white
+        self.tongue_color = pink
+
+        self.animator = Animator(background_color, pupil_color, eye_color,  teeth_color, tongue_color, lips_color)
+        
+
+    #Public functions.
+    #Translating string to talkingleds.
+    def talk(self, sentence):
+        input_string = 'Hey my name is Henrik and Edward.'
+        character_scanner = {' ' : ,
+                             '.' : sleep(2),
+                             ',' : sleep(1),
+                             'a' : animator.read_letter('a'),
+
+    
