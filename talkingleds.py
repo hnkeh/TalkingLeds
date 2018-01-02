@@ -1,4 +1,5 @@
 from time import sleep
+from random import randint
 from animator import *
 from colors import *
 
@@ -19,21 +20,27 @@ class TalkingLeds():
 
     #Public functions.
     #Translating string to talkingleds.
-    def talk(self):
-        input_string = 'Hey my name is Henrik and Edward.'
+    def talk(self, input_string):
         character_scanner = {' ' : sleep(1),
                              '.' : sleep(2),
                              ',' : sleep(1),
-                             'a' : sleep(1)}
+                             'a' : self.animator.a,
+                             'b' : self.animator.b}
 
-        while True:
-            self.animator.read_letter()
-            sleep(1)
-            
+    #TODO: Add all mouth animations to c_scanner.
+
+        for l in input_string:
+            character_scanner[l]()
+            sleep(0.5)
+
     #Idle animation.
     def idle(self, seconds):
+        warm_chance = randint(0, 100)
         counter = 0
         while counter < seconds * 2:
-            self.animator.idle()
+            if warm_chance <= 90:
+                self.animator.idle()
+            else:
+                self.animator.warm_anime()
             counter += 1
             sleep(0.5)

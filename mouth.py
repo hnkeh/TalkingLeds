@@ -6,17 +6,6 @@ class Mouth(Images):
         #Values.
         self.teeth_color = teeth_color
         self.tongue_color = tongue_color
-
-    #Value settings.
-    #Teeths.
-    def change_teeth_color(self, new_teeth_color):
-        self.teeth_color = new_teeth_color
-
-    #Tongue.
-    def change_tongue_color(self, new_tongue_color):
-        self.tongue_color = new_tongue_color
-        
-    #Private functions.
         
     #Animation states.
     #Happy.

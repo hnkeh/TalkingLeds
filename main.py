@@ -1,5 +1,5 @@
 from talkingleds import *
 
 tl = TalkingLeds()
-
-tl.idle(1000)
+tl.talk('aabaa')
+#tl.idle(1000)

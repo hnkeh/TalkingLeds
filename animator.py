@@ -11,6 +11,7 @@ class Animator():
         self.mouth = Mouth(teeth_color, tongue_color, lips_color, background_color)
         self.sense = SenseHat()
         self.sense.low_light = True
+        
         self.blink_chance = blink_chance
         self.smile_chance = smile_chance
         self.blinked = False
@@ -59,7 +60,7 @@ class Animator():
         elif lets_roll >= 20:
             return self.mouth.sad()
         elif lets_roll >= 15:
-            return self.warm_anime()
+            return self.mouth.s_letter()
         elif lets_roll >= 10:
             return self.mouth.o_letter()
         else:
@@ -87,3 +88,9 @@ class Animator():
     #Animates face to fit letter.
     def read_letter(self):    
         pass
+    
+    def a(self):
+        print('a')
+
+    def b(self):
+        print('b')
