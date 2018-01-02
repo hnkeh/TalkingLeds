@@ -64,7 +64,7 @@ class Animator():
         elif lets_roll >= 10:
             return self.mouth.o_letter()
         else:
-            return self.mouth.long()
+            return self.mouth.warm_1()
     
     #Public functions.
     #Reset board.
@@ -86,11 +86,48 @@ class Animator():
         sleep(0.5)
         
     #Animates face to fit letter.
-    def read_letter(self):    
-        pass
-    
-    def a(self):
-        print('a')
+    def animate_input(self, string_input):
+        input_string = string_input.lower()
+        character_scanner = {' ' : self.mouth.smile,
+                             '.' : self.mouth.smile,
+                             ',' : self.mouth.smile,
+                             'a' : self.mouth.a_letter,
+                             'b' : self.mouth.b_letter,
+                             'c' : self.mouth.s_letter,
+                             'd' : self.mouth.d_letter,
+                             'e' : self.mouth.e_letter,
+                             'f' : self.mouth.fvw_letter,
+                             'g' : self.mouth.d_letter,
+                             'h' : self.mouth.h_letter,
+                             'i' : self.mouth.e_letter,
+                             'j' : self.mouth.j_letter,
+                             'k' : self.mouth.k_letter,
+                             'l' : self.mouth.l_letter,
+                             'm' : self.mouth.m_letter,
+                             'n' : self.mouth.n_letter,
+                             'o' : self.mouth.o_letter,
+                             'p' : self.mouth.p_letter,
+                             'q' : self.mouth.q_letter,
+                             'r' : self.mouth.l_letter,
+                             's' : self.mouth.s_letter,
+                             't' : self.mouth.t_letter,
+                             'u' : self.mouth.u_letter,
+                             'v' : self.mouth.fvw_letter,
+                             'w' : self.mouth.fvw_letter,
+                             'x' : self.mouth.s_letter,
+                             'y' : self.mouth.u_letter,
+                             'z' : self.mouth.s_letter}
 
-    def b(self):
-        print('b')
+        for character in input_string:
+            if character == ' ' or character == ',':
+                _matris = self._eye_idle() + character_scanner[character]()
+                self.sense.set_pixels(self._matris_converter(_matris))
+                sleep(1)
+            elif character == '.':
+                _matris = self._eye_idle() + character_scanner[character]()
+                self.sense.set_pixels(self._matris_converter(_matris))
+                sleep(2)
+            else:
+                _matris = self._eye_idle() + character_scanner[character]()
+                self.sense.set_pixels(self._matris_converter(_matris))
+                sleep(0.2)

@@ -21,18 +21,8 @@ class TalkingLeds():
     #Public functions.
     #Translating string to talkingleds.
     def talk(self, input_string):
-        character_scanner = {' ' : sleep(1),
-                             '.' : sleep(2),
-                             ',' : sleep(1),
-                             'a' : self.animator.a,
-                             'b' : self.animator.b}
-
-    #TODO: Add all mouth animations to c_scanner.
-
-        for l in input_string:
-            character_scanner[l]()
-            sleep(0.5)
-
+        self.animator.animate_input(input_string)
+        
     #Idle animation.
     def idle(self, seconds):
         warm_chance = randint(0, 100)
