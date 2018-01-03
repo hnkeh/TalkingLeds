@@ -1,5 +1,10 @@
+#Python imports.
+import pyttsx3
+import _thread
 from time import sleep
 from random import randint
+
+#Talkingleds imports.
 from animator import *
 from colors import *
 
@@ -14,14 +19,18 @@ class TalkingLeds():
         self.tongue_color = pink
 
         self.warm_chance = 100
-
+        
+        self.voice = pyttsx3.init()
+        self.voice.setProperty('rate', self.voice.getProperty('rate') - 10)
         self.animator = Animator(self.background_color, self.pupil_color, self.eye_color,  self.teeth_color, self.tongue_color, self.lips_color, 300, 300)
         
 
     #Public functions.
     #Translating string to talkingleds.
     def talk(self, input_string):
-        self.animator.animate_input(input_string)
+        _thread.start_new_thread(self.animator.animate_input, (input_string,))
+        self.voice.say(input_string)
+        self.voice.runAndWait()
         
     #Idle animation.
     def idle(self, seconds):
