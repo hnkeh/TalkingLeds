@@ -1,3 +1,4 @@
+#Superclass for mouth and eyes.
 class Images():
     def __init__(self, color, background_color):
         #Values.
