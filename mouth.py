@@ -1,5 +1,7 @@
+#Talkingleds imports.
 from images import *
 
+#Mouth states.
 class Mouth(Images):
     def __init__(self, teeth_color, tongue_color, *args, **kwargs):
         super().__init__(*args, **kwargs)

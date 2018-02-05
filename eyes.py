@@ -1,5 +1,7 @@
+#Talkingleds imports.
 from images import *
 
+#Eye states.
 class Eyes(Images):
     def __init__(self, pupil_color, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -77,4 +79,3 @@ class Eyes(Images):
         self._spawn_dots(self.color, dots)
         self._pupil()
         return self.matris
-        

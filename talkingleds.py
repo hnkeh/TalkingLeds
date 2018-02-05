@@ -8,6 +8,7 @@ from random import randint
 from animator import *
 from colors import *
 
+#Main class.
 class TalkingLeds():
     def __init__(self):
         #Standard values.
@@ -17,13 +18,12 @@ class TalkingLeds():
         self.lips_color = red
         self.teeth_color = white
         self.tongue_color = pink
-
+        self.idle_timer = 0.5
         self.warm_chance = 100
         
         self.voice = pyttsx3.init()
         self.voice.setProperty('rate', self.voice.getProperty('rate') - 10)
         self.animator = Animator(self.background_color, self.pupil_color, self.eye_color,  self.teeth_color, self.tongue_color, self.lips_color, 300, 300)
-        
 
     #Public functions.
     #Translating string to talkingleds.
@@ -42,4 +42,4 @@ class TalkingLeds():
             else:
                 self.animator.warm_anime()
             counter += 1
-            sleep(0.5)
+            sleep(idle_timer)

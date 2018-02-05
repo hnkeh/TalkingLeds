@@ -1,9 +1,13 @@
+#Python imports.
 from sense_hat import SenseHat
 from time import sleep
 from random import randint
+
+#Talkingleds imports.
 from eyes import *
 from mouth import *
 
+#Mouth and eyes delegator.
 class Animator():
     def __init__(self, background_color, pupil_color, eye_color,  teeth_color, tongue_color, lips_color, blink_chance, smile_chance):
         #Values.
@@ -88,6 +92,8 @@ class Animator():
     #Animates face to fit letter.
     def animate_input(self, string_input):
         input_string = string_input.lower()
+        
+        #Python switch.
         character_scanner = {' ' : self.mouth.smile,
                              '.' : self.mouth.smile,
                              ',' : self.mouth.smile,
