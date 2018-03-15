@@ -15,6 +15,7 @@ class Animator():
         self.mouth = Mouth(teeth_color, tongue_color, lips_color, background_color)
         self.sense = SenseHat()
         self.sense.low_light = True
+        self.sense.rotation = 180
         
         self.blink_chance = blink_chance
         self.smile_chance = smile_chance

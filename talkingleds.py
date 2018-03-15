@@ -42,4 +42,4 @@ class TalkingLeds():
             else:
                 self.animator.warm_anime()
             counter += 1
-            sleep(idle_timer)
+            sleep(self.idle_timer)
