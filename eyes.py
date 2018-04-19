@@ -77,5 +77,5 @@ class Eyes(Images):
         self._reset_matris()
         dots = [[0, 1, 2, 5, 6, 7], [0, 2, 5, 7], [0, 1, 2, 5, 6, 7]]
         self._spawn_dots(self.color, dots)
-        self._pupil()
+        self._pupil(
         return self.matris

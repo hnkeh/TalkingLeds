@@ -13,13 +13,14 @@ class Animator():
         #Values.
         self.eyes = Eyes(pupil_color, eye_color, background_color)
         self.mouth = Mouth(teeth_color, tongue_color, lips_color, background_color)
+        self.smile_chance = smile_chance
+        self.blink_chance = blink_chance
+        self.blinked = False
+
+        #Sensehat values.
         self.sense = SenseHat()
         self.sense.low_light = True
         self.sense.rotation = 180
-        
-        self.blink_chance = blink_chance
-        self.smile_chance = smile_chance
-        self.blinked = False
         
     #Private functions.
     #Convert matris to self.sensehat grid.
