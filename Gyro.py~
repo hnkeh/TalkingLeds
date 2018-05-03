@@ -1,0 +1,9 @@
+from sense_hat import SenseHat
+from time import sleep
+
+sense = SenseHat()
+
+while True:
+    print(sense.gyro)
+    print(sense.gyroscope)
+    sleep(1)
