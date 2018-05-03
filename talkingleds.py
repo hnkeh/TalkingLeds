@@ -20,16 +20,12 @@ class TalkingLeds():
         self.tongue_color = pink
         self.idle_timer = 0.5
         self.warm_chance = 100
-<<<<<<< HEAD
-        
-=======
 
         #Pyttsx3 values.
         self.voice = pyttsx3.init()
         self.voice.setProperty('rate', self.voice.getProperty('rate') - 10)
 
         #Talkingleds main animator.
->>>>>>> 45dc8b8de32f556478b2f11c65dea4c51dc07203
         self.animator = Animator(self.background_color, self.pupil_color, self.eye_color,  self.teeth_color, self.tongue_color, self.lips_color, 300, 300)
 
     #Private functions.
@@ -38,11 +34,11 @@ class TalkingLeds():
         output = input_string.split()
         return output
 
-    #Start speaking.
+    #Start speaking voice output.
     def _speak(self, input_list):
 
         _cmd_beg = 'espeak '
-        #To dump std errors.
+        #To dump STD errors.
         _cmd_end = ' 2>/dev/null'
         
         for word in input_list:
@@ -59,9 +55,9 @@ class TalkingLeds():
     #Public functions.
     #Translating string into talkingleds.
     def talk(self, input_string):
-        self._speak(self._convert_string_to_list(input_string))
-        #_thread.start_new_thread(self.animator.animate_input, (input_string,))
-        #_thread.start_new_thread(self._
+        #Thread starting.
+        _thread.start_new_thread(self.animator.animate_input, (input_string, ))
+        _thread.start_new_thread(self._speak, (self._convert_string_to_list(input_string)), ))
                                  
     #Idle animation.
     def idle(self, seconds):
