@@ -21,10 +21,6 @@ class TalkingLeds():
         self.idle_timer = 0.5
         self.warm_chance = 100
 
-        #Pyttsx3 values.
-        self.voice = pyttsx3.init()
-        self.voice.setProperty('rate', self.voice.getProperty('rate') - 10)
-
         #Talkingleds main animator.
         self.animator = Animator(self.background_color, self.pupil_color, self.eye_color,  self.teeth_color, self.tongue_color, self.lips_color, 300, 300)
 
@@ -56,9 +52,12 @@ class TalkingLeds():
     #Translating string into talkingleds.
     def talk(self, input_string):
         #Thread starting.
-        _thread.start_new_thread(self.animator.animate_input, (input_string, ))
-        _thread.start_new_thread(self._speak, (self._convert_string_to_list(input_string)), ))
-                                 
+        try:
+            _thread.start_new_thread(self.animator.animate_input, (input_string, ))
+            _thread.start_new_thread(self._speak, (self._convert_string_to_list(input_string)), ))
+        except as exception:
+            print(exception)
+            
     #Idle animation.
     def idle(self, seconds):
         warm_chance = randint(0, 100)
