@@ -25,13 +25,13 @@ class Animator():
     #Private functions.
     #Convert matris to self.sensehat grid.
     def _matris_converter(self, matris):
-        output_list = []
+        _output_list = []
 
         for x in range(8):
             for y in range(8):
-                output_list.append(matris[x][y])
+                _output_list.append(matris[x][y])
 
-        return output_list
+        return _output_list
 
     #Idle eye animation.
     def _eye_idle(self):
