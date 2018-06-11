@@ -32,7 +32,6 @@ class TalkingLeds():
 
     #Start speaking voice output.
     def _speak(self, input_list):
-
         _cmd_beg = 'espeak '
         #To dump STD errors.
         _cmd_end = ' 2>/dev/null'
@@ -53,11 +52,11 @@ class TalkingLeds():
     def talk(self, input_string):
         #Thread starting.
         try:
-            _thread.start_new_thread(self.animator.animate_input, (input_string, ))
-            _thread.start_new_thread(self._speak, (self._convert_string_to_list(input_string)), ))
-        except as exception:
-            print(exception)
-            
+#            _thread.start_new_thread(self.animator.animate_input, (input_string, ))
+            _thread.start_new_thread(self._speak, (self._convert_string_to_list(input_string), ))
+        except:
+            print("Threads failed to start.")
+        
     #Idle animation.
     def idle(self, seconds):
         warm_chance = randint(0, 100)
