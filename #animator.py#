@@ -147,7 +147,7 @@ class Animator():
 
                 sleep(sleep_timer)
 
-            #Matris smile.
+            #Matris smile at end of each word.
             _matris = self._eye_idle() + self.mouth.smile()
             self.sense.set_pixels(self._matris_converter(_matris))
             sleep(0.5)

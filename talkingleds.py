@@ -1,5 +1,5 @@
 #Python imports.
-import _thread
+import threading
 from subprocess import call
 from time import sleep
 from random import randint
@@ -38,24 +38,17 @@ class TalkingLeds():
         
         for word in input_list:
 
-            print(word)
             call([_cmd_beg + word + _cmd_end], shell = True)
-
-            #Check for more pauses.
-            if "." in word:
-                sleep(0.5)
-            elif "," in word:
-                sleep(0.2)
         
     #Public functions.
     #Translating string into talkingleds.
     def talk(self, input_string):
         #Thread starting.
         try:
-#            _thread.start_new_thread(self.animator.animate_input, (input_string, ))
-            _thread.start_new_thread(self._speak, (self._convert_string_to_list(input_string), ))
+            threading.Thread(target=self.animator.animate_input, args=(input_string, )).start()
+            threading.Thread(target=self._speak, args=(self._convert_string_to_list(input_string), )).start()
         except:
-            print("Threads failed to start.")
+            print('Threading failed.')
         
     #Idle animation.
     def idle(self, seconds):
