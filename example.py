@@ -1,5 +1,10 @@
 from talkingleds import *
 
+#Talkingleds.
 tl = TalkingLeds()
-#tl.idle(1000)
+
+#Mouth talking animation from string.
 tl.talk("Hi my name is Chatbot, what is yours?")
+
+#Idle animation by input int.
+tl.idle(1000)
